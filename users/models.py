@@ -33,18 +33,12 @@ class User(AbstractUser):  # AbstractUser -> 장고의 기본 유저 모델
         (CURRENCY_KRW, "KRW"),
     )
 
-    avatar = models.ImageField(null=True, blank=True)
-    gender = models.CharField(
-        choices=GENDER_CHOICES, max_length=10, null=True, blank=True
-    )
-    bio = models.TextField(default="", blank=True)
-    birthdate = models.DateField(null=True)
-    language = models.CharField(
-        choices=LANGUAGE_CHOICES, max_length=2, null=True, blank=True
-    )
-    currency = models.CharField(
-        choices=CURRENCY_CHOICES, max_length=3, null=True, blank=True
-    )
+    avatar = models.ImageField(blank=True)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
+    bio = models.TextField(blank=True)
+    birthdate = models.DateField(blank=True)
+    language = models.CharField(choices=LANGUAGE_CHOICES, max_length=2, blank=True)
+    currency = models.CharField(choices=CURRENCY_CHOICES, max_length=3, blank=True)
     superhost = models.BooleanField(default=False)
     # null = True -> 비어있는거 허락 한다
     # default = "" -> string 값을 기본값으로 할당

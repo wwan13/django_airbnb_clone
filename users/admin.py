@@ -27,3 +27,6 @@ class CustomUserAdmin(UserAdmin):
 
 # 어우 개복잡해 미친건가
 # 튜플 안에 튜플 안에 리스트 안에 튜플 ?
+
+# list_display = ("보여질거 1", "보여질거 2")
+# list_filter = ("나눌꺼",)
