@@ -66,7 +66,7 @@ class Room(core_models.TimeStampedModel):
     room_type = models.ForeignKey(
         RoomType, on_delete=models.SET_NULL, null=True
     )  # 1대 다
-    ameities = models.ManyToManyField(Amenity, blank=True)  # 다대 다 관계
+    amenities = models.ManyToManyField(Amenity, blank=True)  # 다대 다 관계
     facilities = models.ManyToManyField(Facility, blank=True)
     house_rule = models.ManyToManyField(Rule, blank=True)
 
