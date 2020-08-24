@@ -64,11 +64,11 @@ class Room(core_models.TimeStampedModel):
     instant_book = models.BooleanField(default=False)
     host = models.ForeignKey(user_models.User, related_name="rooms", on_delete=models.CASCADE)  # 1대 다
     room_type = models.ForeignKey(
-        RoomType, on_delete=models.SET_NULL, null=True
+        RoomType, related_name="rooms", on_delete=models.SET_NULL, null=True
     )  # 1대 다
-    amenities = models.ManyToManyField(Amenity, blank=True)  # 다대 다 관계
-    facilities = models.ManyToManyField(Facility, blank=True)
-    house_rules = models.ManyToManyField(Rule, blank=True)
+    amenities = models.ManyToManyField(Amenity, related_name="rooms", blank=True)  # 다대 다 관계
+    facilities = models.ManyToManyField(Facility, related_name="rooms", blank=True)
+    house_rules = models.ManyToManyField(Rule, related_name="rooms", blank=True)
 
     def __str__(self):
         return self.name
