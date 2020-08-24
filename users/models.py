@@ -33,7 +33,7 @@ class User(AbstractUser):  # AbstractUser -> 장고의 기본 유저 모델
         (CURRENCY_KRW, "KRW"),
     )
 
-    avatar = models.ImageField(blank=True)
+    avatar = models.ImageField(upload_to="avatar",blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
     bio = models.TextField(default="", blank=True)
     birthdate = models.DateField(null=True)
