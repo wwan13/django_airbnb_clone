@@ -28,5 +28,6 @@ class Review(core_models.TimeStampedModel):
             self.check_in+
             self.value
         ) / 6
-        
-        return round(avg, 2)
+        avg = round(avg,2)
+
+        return avg
