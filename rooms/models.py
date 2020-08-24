@@ -62,7 +62,7 @@ class Room(core_models.TimeStampedModel):
     check_in = models.TimeField()
     check_out = models.TimeField()
     instant_book = models.BooleanField(default=False)
-    host = models.ForeignKey(user_models.User, on_delete=models.CASCADE)  # 1대 다
+    host = models.ForeignKey(user_models.User, related_name="rooms", on_delete=models.CASCADE)  # 1대 다
     room_type = models.ForeignKey(
         RoomType, on_delete=models.SET_NULL, null=True
     )  # 1대 다
