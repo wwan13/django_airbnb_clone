@@ -54,7 +54,7 @@ class Room(core_models.TimeStampedModel):
     country = CountryField()
     city = models.CharField(max_length=80)
     price = models.IntegerField()
-    adress = models.CharField(max_length=140)
+    address = models.CharField(max_length=140)
     guests = models.IntegerField()
     beds = models.IntegerField()
     bedrooms = models.IntegerField()
@@ -68,7 +68,7 @@ class Room(core_models.TimeStampedModel):
     )  # 1대 다
     amenities = models.ManyToManyField(Amenity, blank=True)  # 다대 다 관계
     facilities = models.ManyToManyField(Facility, blank=True)
-    house_rule = models.ManyToManyField(Rule, blank=True)
+    house_rules = models.ManyToManyField(Rule, blank=True)
 
     def __str__(self):
         return self.name

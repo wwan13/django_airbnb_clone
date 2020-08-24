@@ -16,7 +16,26 @@ class RoomAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             "Basic Info",
-            {"fields": ("name", "descripion", "country", "adress", "price")},
+            {"fields": ("name", "description", "country", "address", "price")}
+        ),
+        (
+            "Times",
+            {"fields": ("check_in","check_out","instant_book")}
+        ),
+        (
+            "Spaces",
+            {"fields": ("guests","beds","bedrooms","baths")}
+        ),
+        (
+            "More About Space",
+            {
+                "classes": ("collapse",),
+                "fields": ("amenities","facilities","house_rules"),
+            }
+        ),
+        (
+            "Last Details",
+            {"fields": ("host",)}
         ),
     )
 
@@ -46,7 +65,7 @@ class RoomAdmin(admin.ModelAdmin):
         "room_type",
         "amenities",
         "facilities",
-        "house_rule",
+        "house_rules",
         "city",
         "^host__username",
     )
@@ -54,7 +73,7 @@ class RoomAdmin(admin.ModelAdmin):
     filter_horizontal = (
         "amenities",
         "facilities",
-        "house_rule",
+        "house_rules",
     )
 
 
