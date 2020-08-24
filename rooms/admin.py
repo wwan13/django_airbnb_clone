@@ -76,6 +76,10 @@ class RoomAdmin(admin.ModelAdmin):
         "house_rules",
     )
 
+    def count_amenities(self,obj):
+
+        pass
+
 
 @admin.register(models.Photo)
 class PhotoAdmin(admin.ModelAdmin):
