@@ -24,6 +24,23 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
 
+    list_filter = UserAdmin.list_filter + (
+        "superhost",
+    )
+
+    list_display = (
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "is_active",
+        "language",
+        "currency",
+        "superhost",
+        "is_staff",
+        "is_superuser",
+    )
+
 
 # 어우 개복잡해 미친건가
 # 튜플 안에 튜플 안에 리스트 안에 튜플 ?
