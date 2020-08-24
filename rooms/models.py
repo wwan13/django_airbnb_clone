@@ -45,6 +45,17 @@ class Rule(AbstractItem):
         verbose_name = "House Rule"
 
 
+class Photo(core_models.TimeStampedModel):
+    """ Definition Photo Model """
+
+    caption = models.CharField(max_length=80)
+    file = models.ImageField()
+    room = models.ForeignKey("Room",related_name="photos", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.caption
+
+
 class Room(core_models.TimeStampedModel):
 
     """Definition Room Class"""
@@ -74,12 +85,3 @@ class Room(core_models.TimeStampedModel):
         return self.name
 
 
-class Photo(core_models.TimeStampedModel):
-    """ Definition Photo Model """
-
-    caption = models.CharField(max_length=80)
-    file = models.ImageField()
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.caption
