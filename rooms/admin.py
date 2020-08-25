@@ -16,10 +16,16 @@ class ItemAdmin(admin.ModelAdmin):
     def used_to(self,obj):
         return obj.rooms.count()
 
+class PhotoAdmin(admin.TabularInline):
+
+    model = models.Photo
+
 
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
     """ DEFINITION ROOM ADMIN CLASS """
+
+    inlines = (PhotoAdmin,)
 
     fieldsets = (
         (
@@ -69,6 +75,8 @@ class RoomAdmin(admin.ModelAdmin):
         "city",
         "country",
     )
+
+    raw_id_fields = ("host",)
 
     search_fields = (
         "instant_book",
